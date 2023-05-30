@@ -1,8 +1,8 @@
 ﻿
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
+using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
-using System;
 
 namespace Test_329.NET_4._8
 {
@@ -14,11 +14,12 @@ namespace Test_329.NET_4._8
             Document doc = Application.DocumentManager.MdiActiveDocument;
             using (Transaction tr = doc.Database.TransactionManager.StartTransaction())
             {
+                Editor editor = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
                 DBDictionary layouts = (DBDictionary)tr.GetObject(doc.Database.LayoutDictionaryId, OpenMode.ForRead);
-                Console.WriteLine("\nLayout names: ");
+                editor.WriteMessage("\nLayout names: ");
                 foreach (DBDictionaryEntry entry in layouts)
                 {
-                    Console.WriteLine(entry.Key);
+                    editor.WriteMessage($" |||{entry.Key}||| ");
                 }
             }
         }
