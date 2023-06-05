@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="LayoutLister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublishLayoutToPDF.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
